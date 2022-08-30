@@ -58,8 +58,10 @@ public class FragmentNotifications extends Fragment {
         view.findViewById(R.id.btn_alertDialogCustom).setOnClickListener(v -> showAlertDialogCustom());
         view.findViewById(R.id.btn_dialogFragment).setOnClickListener(v -> showDialogFragment());
         view.findViewById(R.id.btn_dialogFragmentCustom).setOnClickListener(v -> showDialogFragmentCustom());
+        view.findViewById(R.id.btn_bottomSheetDialogFragment).setOnClickListener(v -> showBottomSheetDialogFragment());
 
     }
+
 
     private void showToast() {
         Toast.makeText(requireActivity(), "Simple Toast", Toast.LENGTH_SHORT).show();
@@ -117,5 +119,9 @@ public class FragmentNotifications extends Fragment {
         dialogFragment.show(requireActivity().getSupportFragmentManager(), "sdfsdf");
     }
 
+    private void showBottomSheetDialogFragment() {
+        DialogBottomSheetFragment dialogBottomSheetFragment = new DialogBottomSheetFragment();
+        dialogBottomSheetFragment.show(requireActivity().getSupportFragmentManager(), "sdfsdf");
+    }
 
 }
