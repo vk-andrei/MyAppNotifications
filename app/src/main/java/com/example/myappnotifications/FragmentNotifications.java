@@ -1,24 +1,25 @@
 package com.example.myappnotifications;
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatEditText;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
-
-import java.util.Objects;
-import java.util.zip.Inflater;
 
 public class FragmentNotifications extends Fragment {
 
@@ -59,9 +60,9 @@ public class FragmentNotifications extends Fragment {
         view.findViewById(R.id.btn_dialogFragment).setOnClickListener(v -> showDialogFragment());
         view.findViewById(R.id.btn_dialogFragmentCustom).setOnClickListener(v -> showDialogFragmentCustom());
         view.findViewById(R.id.btn_bottomSheetDialogFragment).setOnClickListener(v -> showBottomSheetDialogFragment());
+        view.findViewById(R.id.btn_pushNotification).setOnClickListener(v -> showPushNotification());
 
     }
-
 
     private void showToast() {
         Toast.makeText(requireActivity(), "Simple Toast", Toast.LENGTH_SHORT).show();
@@ -122,6 +123,35 @@ public class FragmentNotifications extends Fragment {
     private void showBottomSheetDialogFragment() {
         DialogBottomSheetFragment dialogBottomSheetFragment = new DialogBottomSheetFragment();
         dialogBottomSheetFragment.show(requireActivity().getSupportFragmentManager(), "sdfsdf");
+    }
+
+    public final String CHANNEL_ID_ONE = "1";
+    public final String CHANNEL_ID_TWO = "2";
+
+    private void showPushNotification() {
+        //NotificationManagerCompat notificationManager = NotificationManagerCompat.from(requireContext());
+        NotificationManager notificationManager = (NotificationManager) requireActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+
+        // Это для новых версий - где предусмотрено несколько каналов для пушей. Раньше был ОДИН канал.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel_1 = new NotificationChannel(CHANNEL_ID_ONE, "Channel One", NotificationManager.IMPORTANCE_HIGH);
+            notificationChannel_1.setDescription("This is a channel for something interesting!");
+            notificationManager.createNotificationChannel(notificationChannel_1);
+
+            NotificationChannel notificationChannel_2 = new NotificationChannel(CHANNEL_ID_TWO, "Channel Two", NotificationManager.IMPORTANCE_HIGH);
+            notificationChannel_2.setDescription("This is a channel for advertisement!");
+            notificationManager.createNotificationChannel(notificationChannel_2);
+        }
+
+        Notification notification = new NotificationCompat.Builder(requireContext(), CHANNEL_ID_ONE)
+                .setContentTitle("Push Title")
+                .setContentText("Push Text")
+                .setSmallIcon(R.drawable.ic_alert)
+                .setPriority(Notification.PRIORITY_HIGH)
+                .build();
+
+        notificationManager.notify(1, notification);
+
     }
 
 }
