@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".FragmentNotifications">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_toast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/toast" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_snackBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/snackBar" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_snackBarWithAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/snackBarWithAction" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_alertDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/alert_dialog" />
+    <!--<com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_snackBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/snackBar" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_snackBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/snackBar" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_snackBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/snackBar" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_snackBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/snackBar" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_snackBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/snackBar" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_snackBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/snackBar" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_snackBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/snackBar" />-->
+
+</androidx.appcompat.widget.LinearLayoutCompat>

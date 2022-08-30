@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MyAppNotifications</string>
+    <string name="notifications_app">NOTIFICATIONS APP</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="toast">Toast</string>
+    <string name="snackBar">SnackBar</string>
+    <string name="snackBarWithAction">SnackBar With Action</string>
+    <string name="alert_dialog">Alert Dialog</string>
+</resources>
