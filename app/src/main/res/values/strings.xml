@@ -7,4 +7,8 @@
     <string name="snackBar">SnackBar</string>
     <string name="snackBarWithAction">SnackBar With Action</string>
     <string name="alert_dialog">Alert Dialog</string>
+    <string name="alert_dialog_custom">Alert Dialog Custom</string>
+    <string name="show_toast">show toast</string>
+    <string name="dialog_fragment">Dialog Fragment</string>
+    <string name="dialog_fragment_custom">Dialog Fragment Custom</string>
 </resources>

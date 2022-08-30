@@ -2,4 +2,5 @@
 <resources>
     <dimen name="text_for_titles">25sp</dimen>
     <dimen name="margin_buttons">5dp</dimen>
+    <dimen name="default_padding">10dp</dimen>
 </resources>

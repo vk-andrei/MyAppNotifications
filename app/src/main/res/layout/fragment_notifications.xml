@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="@dimen/default_padding"
     tools:context=".FragmentNotifications">
 
     <com.google.android.material.button.MaterialButton
@@ -32,25 +32,25 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_buttons"
         android:text="@string/alert_dialog" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_alertDialogCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/alert_dialog_custom" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_dialogFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/dialog_fragment" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_dialogFragmentCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_buttons"
+        android:text="@string/dialog_fragment_custom" />
     <!--<com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_snackBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_buttons"
-        android:text="@string/snackBar" />
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_snackBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_buttons"
-        android:text="@string/snackBar" />
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_snackBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_buttons"
-        android:text="@string/snackBar" />
-    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_snackBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
