@@ -13,4 +13,7 @@
     <string name="dialog_fragment_custom">Dialog Fragment Custom</string>
     <string name="bottom_sheet_dialog_fragment">Bottom sheet Dialog Fragment</string>
     <string name="push_notification">Push Notification</string>
+    <string name="alert_dialog_custom_list">Alert Dialog Custom List</string>
+    <string name="alert_dialog_custom_list_single_choice">Alert Dialog Custom List Single Choice</string>
+    <string name="alert_dialog_custom_list_multi_choice">Alert Dialog Custom List Multi Choice</string>
 </resources>

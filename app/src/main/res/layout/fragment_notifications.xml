@@ -66,24 +66,40 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_buttons"
             android:text="@string/bottom_sheet_dialog_fragment" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_pushNotification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_buttons"
             android:text="@string/push_notification" />
-        <!--<com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_snackBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_buttons"
-            android:text="@string/snackBar" />
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_snackBar"
+            android:id="@+id/btn_alertDialogCustomList"
+            style="@style/MyStyleForButtons.Facultative"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_buttons"
-            android:text="@string/snackBar" />-->
+            android:text="@string/alert_dialog_custom_list" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_alertDialogCustomListSingleChoice"
+            style="@style/MyStyleForButtons.Facultative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_buttons"
+            android:text="@string/alert_dialog_custom_list_single_choice" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_alertDialogCustomListMultiChoice"
+            style="@style/MyStyleForButtons.Facultative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_buttons"
+            android:text="@string/alert_dialog_custom_list_multi_choice" />
+
+
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.core.widget.NestedScrollView>

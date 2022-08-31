@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -61,6 +62,9 @@ public class FragmentNotifications extends Fragment {
         view.findViewById(R.id.btn_dialogFragmentCustom).setOnClickListener(v -> showDialogFragmentCustom());
         view.findViewById(R.id.btn_bottomSheetDialogFragment).setOnClickListener(v -> showBottomSheetDialogFragment());
         view.findViewById(R.id.btn_pushNotification).setOnClickListener(v -> showPushNotification());
+        view.findViewById(R.id.btn_alertDialogCustomList).setOnClickListener(v -> showAlertDialogCustomList());
+        view.findViewById(R.id.btn_alertDialogCustomListSingleChoice).setOnClickListener(v -> showAlertDialogCustomListSingleChoice());
+        view.findViewById(R.id.btn_alertDialogCustomListMultiChoice).setOnClickListener(v -> showAlertDialogCustomListSMultiChoice());
 
     }
 
@@ -109,6 +113,7 @@ public class FragmentNotifications extends Fragment {
         });
     }
 
+
     // Сохраняет свое состояния при поворте экрана. Плавает в воздухе
     private void showDialogFragment() {
         DialogFragment dialogFragment = new DialogFragment();
@@ -126,6 +131,7 @@ public class FragmentNotifications extends Fragment {
     }
 
     public final String CHANNEL_ID_ONE = "1";
+
     public final String CHANNEL_ID_TWO = "2";
 
     private void showPushNotification() {
@@ -152,6 +158,73 @@ public class FragmentNotifications extends Fragment {
 
         notificationManager.notify(1, notification);
 
+    }
+
+    private void showAlertDialogCustomList() {
+        String[] cities = getResources().getStringArray(R.array.Cities);
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Choose city")
+                .setItems(cities, (dialogInterface, i) -> {
+                    showToast("You choose " + cities[i] + ".");
+                })
+                .show();
+    }
+
+    private int chosen = -1; // Chosen city
+
+    private void showAlertDialogCustomListSingleChoice() {
+        String[] cities = getResources().getStringArray(R.array.Cities);
+
+        // Create builder
+        AlertDialog.Builder myBuilder = new AlertDialog.Builder(requireContext());
+
+        myBuilder
+                .setTitle("Choose city")
+                // Add list of cities. If no one chosen then chosen = -1
+                .setSingleChoiceItems(cities, chosen, (dialogInterface, i) -> chosen = i)
+                .setNegativeButton("Cancel", (dialogInterface, i) -> showToast("You didn't choose"))
+                .setPositiveButton("Ok", (dialogInterface, i) -> {
+                    if (chosen == -1) {
+                        showToast("Ok, you didn't choose");
+                    } else {
+                        showToast("You choose " + cities[chosen]);
+                    }
+                });
+        myBuilder.show();
+    }
+
+    private void showAlertDialogCustomListSMultiChoice() {
+        final String[] cities = getResources().getStringArray(R.array.Cities);
+        final boolean[] chosen = {false, false, false, false, false};
+
+
+        // Create builder
+        AlertDialog.Builder myBuilder = new AlertDialog.Builder(requireContext());
+
+        myBuilder
+                .setTitle("Choose cities:")
+                .setMultiChoiceItems(cities, chosen, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i, boolean b) {
+                        chosen[i] = b;
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        StringBuilder sb = new StringBuilder("Ok, you choose: ");
+                        for (int index = 0; index < chosen.length; index++) {
+                            if (chosen[index]) {
+                                sb.append(cities[index]);
+                                sb.append("; ");
+                            }
+                        }
+                        showToast(sb.toString());
+                    }
+                });
+
+        myBuilder.show();
     }
 
 }

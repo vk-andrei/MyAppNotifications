@@ -14,10 +14,13 @@ import java.util.Objects;
 
 public class DialogFragmentCustom extends androidx.fragment.app.DialogFragment {
 
+    private MyDialogListener myDialogListener;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+
+        myDialogListener = (MainActivity) getActivity();
 
         View customAlertView = getLayoutInflater().inflate(R.layout.dialog_custom, null);
 
@@ -30,12 +33,14 @@ public class DialogFragmentCustom extends androidx.fragment.app.DialogFragment {
 
         customAlertView.findViewById(R.id.btn_alertDialogCustom_showToast).setOnClickListener(v -> {
             EditText editText = customAlertView.findViewById(R.id.et_dialogCustom);
-            ((MainActivity) requireActivity()).showMyDialogResult(editText.getText().toString());
+
+            //((MainActivity) requireActivity()).showMyDialogResult(editText.getText().toString());
+
+            myDialogListener.onMyDialogResult(editText.getText().toString());
+
             dismiss();                      // CLOSE customAlertView
         });
 
         return alertDialog;
     }
-
-
 }

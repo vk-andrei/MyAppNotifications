@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MyDialogListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void showMyDialogResult(String string) {
+   /* public void showMyDialogResult(String string) {
         Toast.makeText(this, string, Toast.LENGTH_SHORT).show();
+    }*/
+
+    @Override
+    public void onMyDialogResult(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
